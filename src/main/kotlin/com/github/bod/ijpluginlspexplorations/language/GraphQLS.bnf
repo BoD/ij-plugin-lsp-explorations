@@ -1,0 +1,20 @@
+{
+  parserClass="com.github.bod.ijpluginlspexplorations.language.parser.GraphQLSParser"
+
+  extends="com.intellij.extapi.psi.ASTWrapperPsiElement"
+
+  psiClassPrefix="Simple"
+  psiImplClassSuffix="Impl"
+  psiPackage="com.github.bod.ijpluginlspexplorations.language.psi"
+  psiImplPackage="com.github.bod.ijpluginlspexplorations.language.psi.impl"
+
+  elementTypeHolderClass="com.github.bod.ijpluginlspexplorations.language.psi.SimpleTypes"
+  elementTypeClass="com.github.bod.ijpluginlspexplorations.language.psi.SimpleElementType"
+  tokenTypeClass="com.github.bod.ijpluginlspexplorations.language.psi.SimpleTokenType"
+}
+
+simpleFile ::= item_*
+
+private item_ ::= (property|COMMENT|CRLF)
+
+property ::= (KEY? SEPARATOR VALUE?) | KEY

@@ -4,7 +4,7 @@ import com.intellij.lang.Language
 
 class GraphQLSLanguage : Language("GraphQLS") {
   companion object {
-    @JvmStatic
+    @JvmField
     val INSTANCE: GraphQLSLanguage = GraphQLSLanguage()
   }
 }

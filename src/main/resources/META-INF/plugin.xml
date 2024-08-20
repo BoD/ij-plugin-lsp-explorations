@@ -70,6 +70,16 @@
         <lang.foldingBuilder language="GraphQLS" implementationClass="org.wso2.lsp4intellij.contributors.LSPFoldingRangeProvider"
                              id="LSPFoldingRangeProvider" order="first"/>
 
+
+        <!-- Apparently need a parser for completions to work -->
+        <lang.parserDefinition
+                language="GraphQLS"
+                implementationClass="com.github.bod.ijpluginlspexplorations.language.SimpleParserDefinition"/>
+
+        <lang.syntaxHighlighterFactory
+                language="GraphQLS"
+                implementationClass="com.github.bod.ijpluginlspexplorations.language.SimpleSyntaxHighlighterFactory"/>
+
     </extensions>
 
     <actions>

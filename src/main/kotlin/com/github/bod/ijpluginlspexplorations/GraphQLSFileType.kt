@@ -6,7 +6,7 @@ import javax.swing.Icon
 
 class GraphQLSFileType : LanguageFileType(GraphQLSLanguage.INSTANCE) {
   companion object {
-    @JvmStatic
+    @JvmField
     val INSTANCE: GraphQLSFileType = GraphQLSFileType()
   }
 

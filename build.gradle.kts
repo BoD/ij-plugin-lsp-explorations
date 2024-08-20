@@ -157,3 +157,11 @@ val runIdeForUiTests by intellijPlatformTesting.runIde.registering {
     robotServerPlugin(Constraints.LATEST_VERSION)
   }
 }
+
+sourceSets {
+  main {
+    java {
+      srcDirs("src/main/gen")
+    }
+  }
+}
