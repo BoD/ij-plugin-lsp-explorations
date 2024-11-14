@@ -10,6 +10,13 @@
     <resource-bundle>messages.MyBundle</resource-bundle>
 
     <extensions defaultExtensionNs="com.intellij">
+        <fileType
+                name="GraphQL"
+                implementationClass="com.github.bod.ijpluginlspexplorations.GraphQLFileType"
+                fieldName="INSTANCE"
+                language="GraphQL"
+                extensions="graphql;graphqls"/>
+
         <toolWindow
                 factoryClass="com.github.bod.ijpluginlspexplorations.toolWindow.MyToolWindowFactory"
                 id="MyToolWindow"

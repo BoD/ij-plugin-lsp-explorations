@@ -8,6 +8,10 @@ object ApolloIcons {
     val Apollo by lazy { load("/icons/status-apollo-monochrome.svg") }
   }
 
+  object Symbol {
+    val GraphQL by lazy { load("/icons/symbol-graphql.svg") }
+  }
+
   private fun load(path: String): Icon {
     return IconLoader.getIcon(path, ApolloIcons::class.java)
   }
