@@ -10,6 +10,7 @@ plugins {
     alias(libs.plugins.changelog) // Gradle Changelog Plugin
     alias(libs.plugins.qodana) // Gradle Qodana Plugin
     alias(libs.plugins.kover) // Gradle Kover Plugin
+    alias(libs.plugins.grammarKit) // Gradle Grammar-Kit Plugin
 }
 
 group = providers.gradleProperty("pluginGroup").get()
@@ -134,6 +135,22 @@ tasks {
     publishPlugin {
         dependsOn(patchChangelog)
     }
+
+    generateParser {
+        sourceFile.set(file("src/main/grammars/GraphQLParser.bnf"))
+        targetRootOutputDir.set(file("src/main/java"))
+        pathToParser.set("com/github/bod/ijpluginlspexplorations/GraphQLParser.java")
+        pathToPsiRoot.set("com/github/bod/ijpluginlspexplorations/psi")
+        purgeOldFiles.set(true)
+    }
+
+    generateLexer {
+        sourceFile.set(file("src/main/grammars/GraphQLLexer.flex"))
+        targetOutputDir.set(file("src/main/java/com/github/bod/ijpluginlspexplorations"))
+        purgeOldFiles.set(false)
+
+        dependsOn(generateParser)
+    }
 }
 
 val runIdeForUiTests by intellijPlatformTesting.runIde.registering {
@@ -152,3 +169,5 @@ val runIdeForUiTests by intellijPlatformTesting.runIde.registering {
         robotServerPlugin(Constraints.LATEST_VERSION)
     }
 }
+
+// `./gradlew generateLexer` to re-generate the Lexer

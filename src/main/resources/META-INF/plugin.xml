@@ -17,6 +17,11 @@
                 language="GraphQL"
                 extensions="graphql;graphqls"/>
 
+        <lang.syntaxHighlighterFactory
+                language="GraphQL"
+                implementationClass="com.github.bod.ijpluginlspexplorations.highlighting.GraphQLSyntaxHighlighterFactory"
+        />
+
         <toolWindow
                 factoryClass="com.github.bod.ijpluginlspexplorations.toolWindow.MyToolWindowFactory"
                 id="MyToolWindow"
